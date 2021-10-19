@@ -1,0 +1,50 @@
+<main class="form-signin">
+  <form (ngSubmit)="sumar()" autocomplete="off">
+    <h2 class="text-center">Suma de dos números</h2>
+    <div class="row">
+      <img
+        src="https://www.svgrepo.com/show/206870/calculator.svg"
+        alt=""
+        width="130"
+        height="115"
+      />
+    </div>
+    <div class="mb-4"></div>
+    <div class="form-floating">
+      <input
+        type="number"
+        class="form-control"
+        id="primerNumero"
+        name="primerNumero"
+        [(ngModel)]="numerosRequest.primerNumero"
+        placeholder="Introduce el primer número..."
+      />
+      <label for="primerNumero">Primer número</label>
+    </div>
+    <div class="mb-4"></div>
+    <div class="form-floating">
+      <input
+        type="number"
+        class="form-control"
+        id="segundoNumero"
+        name="segundoNumero"
+        [(ngModel)]="numerosRequest.segundoNumero"
+        placeholder="Introduce el segundo número..."
+      />
+      <label for="segundoNumero">Segundo número</label>
+    </div>
+    <div class="mb-4"></div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Sumar</button>
+    <div class="mb-4"></div>
+    <div *ngIf="suma && !isLoading" class="alert border border-3 border-info">
+      <h3 class="text-center">La suma es: {{ suma.suma! }}</h3>
+    </div>
+    <div *ngIf="isLoading" class="row">
+      <div class="d-flex justify-content-center">
+        <div class="m-3 spinner-border text-danger" style="width: 3rem; height: 3rem;" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
